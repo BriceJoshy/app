@@ -67,11 +67,11 @@ class Screen1 extends StatelessWidget {
                             fontFamily: 'Proxima',
                             fontSize: 34,
                             fontWeight: FontWeight.w700,
-                            color: const Color(0xffafacdd),
+                            color: const Color(0xffCCC8FF),
                             shadows: [
                               Shadow(
-                                offset: const Offset(0, 0),
-                                blurRadius: 7.9,
+                                offset: const Offset(0, 2),
+                                blurRadius: 20,
                                 color: Colors.black.withOpacity(0.2),
                               ),
                               const Shadow(
@@ -140,9 +140,10 @@ class Screen1 extends StatelessWidget {
                         const Text(
                           '103', // Example number
                           style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.white, // Text color
-                          ),
+                              fontSize: 12,
+                              color: Color(0xffFFFFFF),
+                              fontFamily: 'Proxima',
+                              fontWeight: FontWeight.w600),
                         ),
                       ],
                     )
@@ -332,8 +333,8 @@ class Screen1 extends StatelessWidget {
                                       ),
                                     ),
                                     child: IconButton(
-                                      icon: const Icon(Icons.mic_outlined,
-                                          color: Color(0xff8B88EF)),
+                                      icon: Image.asset("assets/icons/mic.png",
+                                          color: const Color(0xff8B88EF)),
                                       onPressed: () {
                                         // Add your functionality here
                                       },
