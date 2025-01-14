@@ -47,12 +47,46 @@ class _BottomnavState extends State<Bottomnav> {
             ),
             onPressed: () => _onItemTapped(1),
           ),
-          IconButton(
-            icon: Image.asset(
-              'assets/icons/message.png', // Replace with your image path
-              color: const Color(0xff6F6E7C),
-            ),
-            onPressed: () => _onItemTapped(2),
+          Stack(
+            clipBehavior:
+                Clip.none, // Allows badge to appear outside the Stack if needed
+            children: [
+              // Message Icon
+              IconButton(
+                icon: Image.asset(
+                  'assets/icons/message.png', // Replace with your image path
+                  color: const Color(0xff6F6E7C),
+                ),
+                onPressed: () => _onItemTapped(2),
+              ),
+              // Badge
+              Positioned(
+                top: 10, // Position badge at the top
+                right: 0, // Position badge to the right
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: const Color(0XFFB5B2FF), // Badge background color
+                    borderRadius: BorderRadius.circular(15), // Rounded corners
+                  ),
+                  constraints: const BoxConstraints(
+                    minWidth: 16, // Minimum width of the badge
+                    minHeight: 8, // Minimum height of the badge
+                  ),
+                  child: const Text(
+                    '10', // Badge content (e.g., unread message count)
+                    style: TextStyle(
+                      color: Colors.white, // Text color
+                      fontSize: 10, // Text size
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
           ),
           IconButton(
             icon: Image.asset(
