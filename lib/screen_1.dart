@@ -96,6 +96,56 @@ class Screen1 extends StatelessWidget {
                         )
                       ],
                     ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        // Clock Icon
+                        Image.asset(
+                          'assets/icons/clock.png',
+                          color: const Color(0xffFFFFFF),
+                        ),
+
+                        const SizedBox(
+                            width: 3), // Spacing between clock and time text
+
+                        // Time Text (22h 12m)
+                        const Text(
+                          '22h 12m',
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Color(0xffFFFFFF),
+                              fontFamily: 'Proxima',
+                              fontWeight: FontWeight.w600),
+                        ),
+
+                        const SizedBox(
+                            width: 9.73), // Spacing between time and image
+
+                        // Person Image (Circular image)
+                        ClipOval(
+                          child: Image.asset(
+                            'assets/icons/User.png', // Replace with your image path
+                            width: 20, // Image width
+                            height: 20, // Image height
+                            fit: BoxFit.cover,
+                            color: const Color(0xffFFFFFF),
+                          ),
+                        ),
+
+                        const SizedBox(
+                            width: 4), // Spacing between image and number
+
+                        // Number
+                        const Text(
+                          '103', // Example number
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.white, // Text color
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
