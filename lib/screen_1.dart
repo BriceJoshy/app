@@ -1,4 +1,5 @@
 import 'package:app/BottomNavBar/bottomNav.dart';
+import 'package:app/widgets/gridcomponent.dart';
 import 'package:flutter/material.dart';
 
 class Screen1 extends StatelessWidget {
@@ -215,202 +216,103 @@ class Screen1 extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: SizedBox(
-                            height: 230,
-                            child: GridView.count(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 12,
-                              mainAxisSpacing: 12,
-                              childAspectRatio:
-                                  (166 / 60), // Aspect ratio for each grid item
-                              children: [
-                                // Element 1
-                                Container(
-                                    padding: const EdgeInsets.all(13),
+                              height: 180,
+                              child: GridView.count(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 12,
+                                mainAxisSpacing: 12,
+                                childAspectRatio: (166 / 60),
+                                children: const [
+                                  CustomGridItem(
+                                      letter: 'A',
+                                      title: 'The peace in the early mornings'),
+                                  CustomGridItem(
+                                      letter: 'B',
+                                      title: 'The magical golden hours'),
+                                  CustomGridItem(
+                                      letter: 'C',
+                                      title: 'Wind-down time after dinners'),
+                                  CustomGridItem(
+                                      letter: 'D',
+                                      title: 'The serenity past midnight'),
+                                ],
+                              )),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Pick your option.",
+                                    style: TextStyle(
+                                        fontFamily: 'Proxima',
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12,
+                                        color: Color(0xffE5E5E5)),
+                                  ),
+                                  Text(
+                                    "See who has a similar mind.",
+                                    style: TextStyle(
+                                        fontFamily: 'Proxima',
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12,
+                                        color: Color(0xffE5E5E5)),
+                                  )
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: 48,
+                                    width: 48,
                                     decoration: BoxDecoration(
-                                      color: const Color(0xff232A2E),
-                                      borderRadius: BorderRadius.circular(12),
+                                      color: const Color(
+                                          0xff020202), // Background color
+                                      shape: BoxShape.circle,
+                                      border: Border.all(
+                                        color: const Color(
+                                            0xff8B88EF), // Border color
+                                        width: 2, // Border width
+                                      ),
                                     ),
-                                    height: 57,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          height: screenWidth * 0.07,
-                                          width: screenWidth * 0.07,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xff232A2E),
-                                            shape: BoxShape.circle,
-                                            border: Border.all(
-                                              color: const Color(
-                                                  0xffC4C4C4), // Border color
-                                              width: 1, // Border width
-                                            ),
-                                          ),
-                                          child: const Center(
-                                            child: Text(
-                                              'A', // Alphabet for the first element
-                                              style: TextStyle(
-                                                color: Color(0xffC4C4C4),
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(width: 9),
-                                        const Expanded(
-                                          child: Text(
-                                            'The peace in the early mornings',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w400,
-                                                fontSize: 14,
-                                                color: Color(0xffC4C4C4),
-                                                fontFamily: 'Proxima'),
-                                            softWrap: true,
-                                          ),
-                                        ),
-                                      ],
-                                    )),
-                                // Element 2
-                                Container(
-                                  padding: const EdgeInsets.all(13.5),
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xff232A2E),
-                                    borderRadius: BorderRadius.circular(12),
+                                    child: IconButton(
+                                      icon: const Icon(Icons.mic_outlined,
+                                          color: Color(0xff8B88EF)),
+                                      onPressed: () {
+                                        // Add your functionality here
+                                      },
+                                    ),
                                   ),
-                                  height: 57,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        height: screenWidth * 0.07,
-                                        width: screenWidth * 0.07,
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xff232A2E),
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: const Color(
-                                                0xffC4C4C4), // Border color
-                                            width: 1, // Border width
-                                          ),
-                                        ),
-                                        child: const Center(
-                                          child: Text(
-                                            'B', // Alphabet for the second element
-                                            style: TextStyle(
-                                              color: Color(0xffC4C4C4),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                          width:
-                                              8), // Space between the letter and text
-                                      const Text(
-                                        'Element 2', // Title for the second element
-                                        style: TextStyle(
-                                            fontSize: 20, color: Colors.white),
-                                      ),
-                                    ],
+
+                                  const SizedBox(
+                                      width: 10), // Space between icons
+                                  Container(
+                                    height: 48,
+                                    width: 48,
+                                    decoration: const BoxDecoration(
+                                      color:
+                                          Color(0xff8B88EF), // Background color
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: IconButton(
+                                      icon: const Icon(Icons.arrow_forward,
+                                          color: Color(0xff020202)),
+                                      onPressed: () {
+                                        // Add your functionality here
+                                      },
+                                    ),
                                   ),
-                                ),
-                                // Element 3
-                                Container(
-                                  padding: const EdgeInsets.all(13.5),
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xff232A2E),
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  height: 57,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        height: screenWidth * 0.07,
-                                        width: screenWidth * 0.07,
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xff232A2E),
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: const Color(
-                                                0xffC4C4C4), // Border color
-                                            width: 1, // Border width
-                                          ),
-                                        ),
-                                        child: const Center(
-                                          child: Text(
-                                            'C', // Alphabet for the third element
-                                            style: TextStyle(
-                                              color: Color(0xffC4C4C4),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                          width:
-                                              8), // Space between the letter and text
-                                      const Text(
-                                        'Element 3', // Title for the third element
-                                        style: TextStyle(
-                                            fontSize: 20, color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                // Element 4
-                                Container(
-                                  padding: const EdgeInsets.all(13.5),
-                                  decoration: BoxDecoration(
-                                    color: const Color(0xff232A2E),
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  height: 57,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        height: screenWidth * 0.07,
-                                        width: screenWidth * 0.07,
-                                        decoration: BoxDecoration(
-                                          color: const Color(0xff232A2E),
-                                          shape: BoxShape.circle,
-                                          border: Border.all(
-                                            color: const Color(
-                                                0xffC4C4C4), // Border color
-                                            width: 1, // Border width
-                                          ),
-                                        ),
-                                        child: const Center(
-                                          child: Text(
-                                            'D', // Alphabet for the fourth element
-                                            style: TextStyle(
-                                              color: Color(0xffC4C4C4),
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(
-                                          width:
-                                              8), // Space between the letter and text
-                                      const Text(
-                                        'Element 4', // Title for the fourth element
-                                        style: TextStyle(
-                                            fontSize: 20, color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                                ],
+                              )
+                            ],
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
