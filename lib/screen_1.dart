@@ -1,4 +1,4 @@
-import 'package:app/bottomNav.dart';
+import 'package:app/BottomNavBar/bottomNav.dart';
 import 'package:flutter/material.dart';
 
 class Screen1 extends StatelessWidget {
