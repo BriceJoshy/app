@@ -106,12 +106,10 @@ class Screen1 extends StatelessWidget {
                           color: const Color(0xffFFFFFF),
                         ),
 
-                        const SizedBox(
-                            width: 3), // Spacing between clock and time text
+                        const SizedBox(width: 3),
 
-                        // Time Text (22h 12m)
                         const Text(
-                          '22h 12m',
+                          '22h 00m',
                           style: TextStyle(
                               fontSize: 12,
                               color: Color(0xffFFFFFF),
