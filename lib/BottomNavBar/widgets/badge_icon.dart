@@ -30,7 +30,7 @@ class BadgeIcon extends StatelessWidget {
             right: 0,
             child: Container(
               padding: const EdgeInsets.symmetric(
-                horizontal: 6,
+                horizontal: 4,
               ),
               decoration: BoxDecoration(
                 color: const Color(0XFFB5B2FF), // Badge background color
@@ -38,17 +38,19 @@ class BadgeIcon extends StatelessWidget {
               ),
               constraints: const BoxConstraints(
                 minWidth: 16,
-                minHeight: 8,
+                minHeight: 13,
               ),
-              child: Text(
-                badgeText!,
-                style: const TextStyle(
-                  fontFamily: 'Proxima',
-                  color: Colors.black,
-                  fontSize: 10,
-                  fontWeight: FontWeight.bold,
+              child: Center(
+                child: Text(
+                  badgeText!,
+                  style: const TextStyle(
+                    fontFamily: 'Proxima',
+                    color: Colors.black,
+                    fontSize: 7,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
             ),
           ),

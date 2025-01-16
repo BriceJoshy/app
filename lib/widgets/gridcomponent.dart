@@ -11,17 +11,16 @@ class CustomGridItem extends StatefulWidget {
 }
 
 class _CustomGridItemState extends State<CustomGridItem> {
-  bool _isSelected = false; // Track if the item is selected
+  bool _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    // Colors that will change based on selection
-    Color borderColor =
-        _isSelected ? const Color(0xff8B88EF) : const Color(0xffC4C4C4);
     Color circleColor =
         _isSelected ? const Color(0xff8B88EF) : const Color(0xff232A2E);
+    Color circleBorderColor =
+        _isSelected ? const Color(0xff8B88EF) : const Color(0xffC4C4C4);
     Color textColor = const Color(0xffC4C4C4);
 
     return GestureDetector(
@@ -35,23 +34,25 @@ class _CustomGridItemState extends State<CustomGridItem> {
         decoration: BoxDecoration(
           color: const Color(0xff232A2E),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: borderColor, // Change border color based on selection
-            width: 1,
-          ),
+          border: _isSelected
+              ? Border.all(
+                  color: circleBorderColor,
+                  width: 2,
+                )
+              : null,
         ),
         height: 57,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              height: screenWidth * 0.07,
-              width: screenWidth * 0.07,
+              height: screenWidth * 0.055,
+              width: screenWidth * 0.055,
               decoration: BoxDecoration(
-                color: circleColor, // Change circle color based on selection
+                color: circleColor,
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: borderColor, // Border color changes when selected
+                  color: circleBorderColor,
                   width: 1,
                 ),
               ),
@@ -59,24 +60,29 @@ class _CustomGridItemState extends State<CustomGridItem> {
                 child: Text(
                   widget.letter,
                   style: TextStyle(
-                    color: textColor, // Change text color inside the circle
+                    color: textColor,
                     fontSize: 14,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
-            const SizedBox(width: 9),
+            const SizedBox(width: 10),
             Expanded(
-              child: Text(
-                widget.title,
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 14,
-                  color: textColor, // Change title text color
-                  fontFamily: 'Proxima',
+              child: Transform.scale(
+                scaleX: 1.05,
+                child: Text(
+                  widget.title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    height: 1.1,
+                    fontSize: 14,
+                    color: textColor,
+                    fontFamily: 'Proxima',
+                    overflow: TextOverflow.visible,
+                  ),
+                  softWrap: true,
                 ),
-                softWrap: true,
               ),
             ),
           ],

@@ -24,8 +24,8 @@ class _BottomnavState extends State<Bottomnav> {
 
     return Container(
       width: screenWidth,
-      height: screenHeight * 0.07,
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      height: 45,
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: const BoxDecoration(
         color: Color(0xFF0F1115),
       ),

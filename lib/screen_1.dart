@@ -51,7 +51,7 @@ class Screen1 extends StatelessWidget {
 
             // Text and Icon
             Positioned(
-              top: 59,
+              top: 70,
               child: SizedBox(
                 width: screenWidth,
                 child: Column(
@@ -61,31 +61,44 @@ class Screen1 extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          'Stroll Bonfire',
-                          style: TextStyle(
-                            fontFamily: 'Proxima',
-                            fontSize: 34,
-                            fontWeight: FontWeight.w700,
-                            color: const Color(0xffCCC8FF),
-                            shadows: [
-                              Shadow(
-                                offset: const Offset(0, 2),
-                                blurRadius: 20,
-                                color: Colors.black.withOpacity(0.2),
-                              ),
-                              const Shadow(
-                                offset: Offset(0, 0),
-                                blurRadius: 2,
-                                color: Color(0xFFBEBEBE),
-                              ),
-                              Shadow(
-                                offset: const Offset(0, 1),
-                                blurRadius: 2,
-                                color: const Color(0xFF24232F).withOpacity(0.5),
-                              ),
-                            ],
+                        Transform.scale(
+                          scaleX: 1.1,
+                          child: const Text(
+                            'Stroll Bonfire',
+                            style: TextStyle(
+                              fontFamily: 'Proxima',
+                              fontSize: 34,
+                              fontWeight: FontWeight.w700,
+                              height: 1,
+                              color: Color(0xffCCC8FF),
+                              shadows: [
+                                Shadow(
+                                  offset: Offset(0, 0),
+                                  blurRadius:
+                                      7.9, // Simulates the 7.9px blur radius
+                                  color: Color(
+                                      0x33000000), // rgba equivalent: #00000033
+                                ),
+                                Shadow(
+                                  offset: Offset(0, 0),
+                                  blurRadius:
+                                      2.0, // Simulates the 2px blur radius
+                                  color: Color(
+                                      0xffBEBEBE), // rgba equivalent: #BEBEBE
+                                ),
+                                Shadow(
+                                  offset: Offset(
+                                      0, 1), // Horizontal and Vertical position
+                                  blurRadius: 2.0, // 2px blur radius
+                                  color: Color(
+                                      0x8024232F), // rgba equivalent: #24232F80
+                                ),
+                              ],
+                            ),
                           ),
+                        ),
+                        const SizedBox(
+                          width: 8,
                         ),
                         const Padding(
                           padding: EdgeInsets.only(top: 5.0),
@@ -96,25 +109,36 @@ class Screen1 extends StatelessWidget {
                         )
                       ],
                     ),
+                    const SizedBox(
+                      height: 2,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         // Clock Icon
                         Image.asset(
+                          width: 13,
+                          height: 15,
                           'assets/icons/clock.png',
                           color: const Color(0xffFFFFFF),
                         ),
 
                         const SizedBox(width: 3),
 
-                        const Text(
-                          '22h 00m',
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xffFFFFFF),
-                              fontFamily: 'Proxima',
-                              fontWeight: FontWeight.w600),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 3.0),
+                          child: Transform.scale(
+                            scaleX: 1.05,
+                            child: const Text(
+                              '22h 00m',
+                              style: TextStyle(
+                                  fontSize: 11,
+                                  color: Color(0xffFFFFFF),
+                                  fontFamily: 'Proxima',
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
                         ),
 
                         const SizedBox(
@@ -125,23 +149,26 @@ class Screen1 extends StatelessWidget {
                           child: Image.asset(
                             'assets/icons/User.png', // Replace with your image path
                             width: 20, // Image width
-                            height: 20, // Image height
-                            fit: BoxFit.cover,
+                            height: 15, // Image height
+                            // fit: BoxFit.cover,
                             color: const Color(0xffFFFFFF),
                           ),
                         ),
 
-                        const SizedBox(
-                            width: 4), // Spacing between image and number
-
                         // Number
-                        const Text(
-                          '103', // Example number
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Color(0xffFFFFFF),
-                              fontFamily: 'Proxima',
-                              fontWeight: FontWeight.w600),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 3.0),
+                          child: Transform.scale(
+                            scaleX: 1.05,
+                            child: const Text(
+                              '103', // Example number
+                              style: TextStyle(
+                                  fontSize: 11,
+                                  color: Color(0xffFFFFFF),
+                                  fontFamily: 'Proxima',
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
                         ),
                       ],
                     )
@@ -153,119 +180,115 @@ class Screen1 extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                height: screenHeight / 1.3,
+                height: screenHeight / 2,
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.center,
-                    stops: const [
-                      0.2,
-                      1.0,
-                    ],
+                    begin: Alignment.bottomCenter, // Starts from the bottom
+                    end: Alignment.topCenter,
+                    stops: [0.6, 1],
                     colors: [
-                      Colors.black.withOpacity(0),
                       Colors.black,
+                      Colors.transparent,
                     ],
                   ),
                 ),
                 child: SizedBox(
+                  height: 140,
                   width: screenWidth,
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 5),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        SizedBox(
-                          height: 150,
-                          width: screenWidth * 0.9,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                height: 60,
-                                width: 60,
-                                decoration: const BoxDecoration(
-                                  color: Color(0xff0D0F11),
-                                  shape: BoxShape.circle,
-                                ),
-                                child: Center(
-                                  child: Image.asset(
-                                    'assets/images/image.png',
-                                    width: 50,
-                                    height: 50,
-                                    fit: BoxFit.cover,
-                                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        height: 129,
+                        width: screenWidth * 0.9,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 60,
+                              width: 60,
+                              decoration: const BoxDecoration(
+                                color: Color.fromARGB(122, 18, 21, 23),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Center(
+                                child: Image.asset(
+                                  'assets/images/image.png',
+                                  width: 50,
+                                  height: 50,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
-                              const Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(top: 50.0, left: 5),
-                                    child: Text(
-                                      'Angelina, 28', // Replace with your desired text
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 40.0, left: 5),
+                                  child: Transform.scale(
+                                    scaleX: 1.05,
+                                    child: const Text(
+                                      'Angelina, 28',
                                       style: TextStyle(
-                                        fontFamily:
-                                            'Proxima', // Ensure the font is added to pubspec.yaml
-                                        fontSize: 11,
+                                        fontFamily: 'Proxima',
                                         fontWeight: FontWeight.w700,
+                                        fontSize: 11,
                                         color: Color(0xFFF5F5F5),
-                                        decoration: TextDecoration
-                                            .none, // No text decoration
+                                        decoration: TextDecoration.none,
                                       ),
                                       textAlign: TextAlign.left,
                                     ),
                                   ),
-                                  Padding(
-                                    padding:
-                                        EdgeInsets.only(left: 15.0, top: 9),
-                                    child: SizedBox(
-                                      width: 247,
-                                      height: 60,
-                                      child: Text(
+                                ),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(left: 22.0, top: 9),
+                                  child: SizedBox(
+                                    width: 247,
+                                    height: 45,
+                                    child: Transform.scale(
+                                      scaleX: 1.1,
+                                      child: const Text(
                                         "What is your favorite time of the day?",
                                         style: TextStyle(
-                                          fontFamily:
-                                              'Proxima Nova', // Ensure the font is added to pubspec.yaml
+                                          fontFamily: 'Proxima',
                                           fontSize: 20,
-                                          fontWeight: FontWeight.w700,
-
-                                          color: Colors.white,
-                                          decoration: TextDecoration
-                                              .none, // No text decoration
+                                          decorationThickness: 2,
+                                          height: 1.1,
+                                          fontWeight: FontWeight.w900,
+                                          color: Color(0xffF5F5F5),
+                                          decoration: TextDecoration.none,
                                         ),
                                       ),
                                     ),
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
                         ),
-                        const SizedBox(
-                          height: 9,
-                        ),
-                        const Text(
-                            "“Mine is definitely the peace in the morning.”",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Color.fromRGBO(203, 201, 255, 0.7),
-                              fontFamily: 'Proxima',
-                              fontSize: 12,
-                              fontStyle: FontStyle.italic,
-                              decoration: TextDecoration.none,
-                            )),
-                        const SizedBox(
-                          height: 14,
+                      ),
+                      Stack(children: [
+                        const Center(
+                          child: Text(
+                              "“Mine is definitely the peace in the morning.”",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromRGBO(203, 201, 255, 0.7),
+                                fontFamily: 'Proxima',
+                                fontSize: 12,
+                                fontStyle: FontStyle.italic,
+                              )),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16.0,
+                          ),
                           child: SizedBox(
-                              height: 180,
+                              height: 170,
                               child: GridView.count(
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 12,
@@ -286,17 +309,20 @@ class Screen1 extends StatelessWidget {
                                       title: 'The serenity past midnight'),
                                 ],
                               )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 10),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
+                        )
+                      ]),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Transform.scale(
+                                  scaleX: 1.05,
+                                  child: const Text(
                                     "Pick your option.",
                                     style: TextStyle(
                                         fontFamily: 'Proxima',
@@ -304,66 +330,65 @@ class Screen1 extends StatelessWidget {
                                         fontSize: 12,
                                         color: Color(0xffE5E5E5)),
                                   ),
-                                  Text(
-                                    "See who has a similar mind.",
-                                    style: TextStyle(
-                                        fontFamily: 'Proxima',
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 12,
-                                        color: Color(0xffE5E5E5)),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    height: 48,
-                                    width: 48,
-                                    decoration: BoxDecoration(
+                                ),
+                                Transform.scale(
+                                    scaleX: 1.05,
+                                    child: const Text(
+                                      "See who has a similar mind.",
+                                      style: TextStyle(
+                                          fontFamily: 'Proxima',
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 12,
+                                          color: Color(0xffE5E5E5)),
+                                    ))
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: 48,
+                                  width: 48,
+                                  decoration: BoxDecoration(
+                                    color: const Color(
+                                        0xff020202), // Background color
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
                                       color: const Color(
-                                          0xff020202), // Background color
-                                      shape: BoxShape.circle,
-                                      border: Border.all(
-                                        color: const Color(
-                                            0xff8B88EF), // Border color
-                                        width: 2, // Border width
-                                      ),
-                                    ),
-                                    child: IconButton(
-                                      icon: Image.asset("assets/icons/mic.png",
-                                          color: const Color(0xff8B88EF)),
-                                      onPressed: () {
-                                        // Add your functionality here
-                                      },
+                                          0xff8B88EF), // Border color
+                                      width: 2, // Border width
                                     ),
                                   ),
+                                  child: IconButton(
+                                    icon: Image.asset("assets/icons/mic.png",
+                                        color: const Color(0xff8B88EF)),
+                                    onPressed: () {},
+                                  ),
+                                ),
 
-                                  const SizedBox(
-                                      width: 10), // Space between icons
-                                  Container(
-                                    height: 48,
-                                    width: 48,
-                                    decoration: const BoxDecoration(
-                                      color:
-                                          Color(0xff8B88EF), // Background color
-                                      shape: BoxShape.circle,
-                                    ),
-                                    child: IconButton(
-                                      icon: const Icon(Icons.arrow_forward,
-                                          color: Color(0xff020202)),
-                                      onPressed: () {
-                                        // Add your functionality here
-                                      },
-                                    ),
+                                const SizedBox(
+                                    width: 10), // Space between icons
+                                Container(
+                                  height: 48,
+                                  width: 48,
+                                  decoration: const BoxDecoration(
+                                    color:
+                                        Color(0xff8B88EF), // Background color
+                                    shape: BoxShape.circle,
                                   ),
-                                ],
-                              )
-                            ],
-                          ),
+                                  child: IconButton(
+                                    iconSize: 33,
+                                    icon: const Icon(Icons.arrow_forward,
+                                        color: Color(0xff020202)),
+                                    onPressed: () {},
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -372,7 +397,7 @@ class Screen1 extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: const Padding(
-        padding: EdgeInsets.only(bottom: 15.0),
+        padding: EdgeInsets.only(bottom: 10.0),
         child: Bottomnav(),
       ),
     );
