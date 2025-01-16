@@ -133,7 +133,7 @@ class Screen1 extends StatelessWidget {
                             child: const Text(
                               '22h 00m',
                               style: TextStyle(
-                                  fontSize: 11,
+                                  fontSize: 12,
                                   color: Color(0xffFFFFFF),
                                   fontFamily: 'Proxima',
                                   fontWeight: FontWeight.w600),
@@ -163,7 +163,7 @@ class Screen1 extends StatelessWidget {
                             child: const Text(
                               '103', // Example number
                               style: TextStyle(
-                                  fontSize: 11,
+                                  fontSize: 12,
                                   color: Color(0xffFFFFFF),
                                   fontFamily: 'Proxima',
                                   fontWeight: FontWeight.w600),
